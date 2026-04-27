@@ -1,1 +1,35 @@
-services: - type: web plan: free runtime: image name: n8n-service image: url: docker.io/n8nio/n8n:latest envVars: - key: N8N_ENCRYPTION_KEY generateValue: true # --- Datenbank: externes Postgres (Neon) --- - key: DB_TYPE value: postgresdb - key: DB_POSTGRESDB_HOST sync: false - key: DB_POSTGRESDB_PORT value: "5432" - key: DB_POSTGRESDB_DATABASE sync: false - key: DB_POSTGRESDB_USER sync: false - key: DB_POSTGRESDB_PASSWORD sync: false - key: DB_POSTGRESDB_SCHEMA value: public # SSL (bei Neon Pflicht) - key: DB_POSTGRESDB_SSL_ENABLED value: "true" - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED value: "false" # --- Allgemeine n8n-Einstellungen --- - key: GENERIC_TIMEZONE value: Europe/Berlin - key: TZ value: Europe/Berlin
+services: 
+- type: web 
+plan: free 
+runtime: image 
+name: n8n-service 
+image: 
+url: docker.io/n8nio/n8n:latest 
+envVars: 
+- key: N8N_ENCRYPTION_KEY 
+generateValue: true 
+# --- Datenbank: externes Postgres (Neon) --- 
+- key: DB_TYPE 
+value: postgresdb 
+- key: DB_POSTGRESDB_HOST 
+sync: false 
+- key: DB_POSTGRESDB_PORT 
+value: "5432" 
+- key: DB_POSTGRESDB_DATABASE 
+sync: false 
+- key: DB_POSTGRESDB_USER 
+sync: false 
+- key: DB_POSTGRESDB_PASSWORD 
+sync: false 
+- key: DB_POSTGRESDB_SCHEMA 
+value: public 
+# SSL (bei Neon Pflicht) 
+- key: DB_POSTGRESDB_SSL_ENABLED 
+value: "true" 
+- key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED 
+value: "false" 
+# --- Allgemeine n8n-Einstellungen --- 
+- key: GENERIC_TIMEZONE 
+value: Europe/Berlin 
+- key: TZ 
+value: Europe/Berlin 
